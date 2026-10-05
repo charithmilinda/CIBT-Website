@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     // Send email notification via Resend
     const data = await resend.emails.send({
       from: 'Impact Education Consultation <onboarding@resend.dev>', // Update to your verified domain once live
-      to: ['admissions@impacteducation.example'], // Replace with your real receiving email address
+      to: ['info@impacteducation.co.nz'],
       subject: `New Consultation Booking: ${fullName}`,
       html: `
         <h2>New Consultation Request</h2>

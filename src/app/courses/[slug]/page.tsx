@@ -1,7 +1,8 @@
 import { getCourseBySlug, getCourses } from "@/lib/supabase/queries";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Logo from "@/components/Logo";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const revalidate = 0;
 
@@ -62,17 +63,9 @@ export default async function CourseDetailPage({
 
   return (
     <main className="min-h-screen bg-canvas text-charcoal">
-      {/* Existing Course Page Layout */}
-      <nav className="bg-white border-b border-gray-200 py-6 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <a href="/"><Logo /></a>
-          <a href="/#pathways" className="text-xs font-semibold text-slate hover:text-navy">
-            &larr; Back to Pathways
-          </a>
-        </div>
-      </nav>
+      <Navbar />
 
-      <section className="bg-navy text-white py-16 px-6 lg:px-8">
+      <section className="bg-navy text-white pt-40 pb-16 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <span className="text-gold text-xs font-semibold tracking-widest uppercase border border-gold/40 px-3 py-1 rounded-full inline-block mb-4">
             {course.category}
@@ -109,10 +102,10 @@ export default async function CourseDetailPage({
         <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-card h-fit">
           <h3 className="font-heading font-bold text-lg text-navy mb-2">Interested in this course?</h3>
           <a
-            href="/#consultation"
+            href="/book-appointment"
             className="block text-center bg-emerald hover:bg-emerald/90 text-white font-bold text-xs py-3 rounded-lg transition-colors mt-4"
           >
-            Apply / Book Consultation
+            Apply / Book Appointment
           </a>
         </div>
       </section>
@@ -139,6 +132,8 @@ export default async function CourseDetailPage({
           </div>
         </section>
       )}
+
+      <Footer />
     </main>
   );
 }

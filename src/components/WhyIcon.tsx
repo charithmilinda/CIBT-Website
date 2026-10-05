@@ -1,4 +1,4 @@
-type IconName = 'target' | 'handshake' | 'globe' | 'institution' | 'briefcase' | 'home' | 'graduationCap' | 'checklist' | 'phone' | 'mail' | 'pin' | 'clock';
+type IconName = 'target' | 'handshake' | 'globe' | 'institution' | 'briefcase' | 'home' | 'graduationCap' | 'checklist' | 'phone' | 'mail' | 'pin' | 'clock' | 'play' | 'star' | 'calendar' | 'upload' | 'whatsapp' | 'facebook' | 'instagram' | 'linkedin' | 'chevronLeft' | 'chevronRight';
 
 const paths: Record<IconName, React.ReactNode> = {
   phone: (
@@ -79,6 +79,54 @@ const paths: Record<IconName, React.ReactNode> = {
       <path d="M10 20v-6h4v6" />
     </>
   ),
+  play: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M10 8.5l6 3.5-6 3.5v-7z" fill="currentColor" stroke="none" />
+    </>
+  ),
+  star: (
+    <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6L12 3z" />
+  ),
+  calendar: (
+    <>
+      <rect x="3" y="5" width="18" height="16" rx="1.5" />
+      <path d="M3 9.5h18" />
+      <path d="M8 3v4M16 3v4" />
+    </>
+  ),
+  upload: (
+    <>
+      <path d="M12 16V4" />
+      <path d="M7 9l5-5 5 5" />
+      <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" />
+    </>
+  ),
+  whatsapp: (
+    <>
+      <path d="M12 3a9 9 0 0 0-7.6 13.8L3 21l4.4-1.4A9 9 0 1 0 12 3z" />
+      <path d="M8.5 9.5c.3 2.5 2.5 4.7 5 5 .9.1 1.4-1 1-1.6l-.6-.9a.9.9 0 0 0-1-.3l-.6.2c-.5.2-1-.1-1.5-.6-.5-.5-.8-1-.6-1.5l.2-.6a.9.9 0 0 0-.3-1l-.9-.6c-.6-.4-1.7.1-1.6 1z" fill="currentColor" stroke="none" />
+    </>
+  ),
+  facebook: (
+    <path d="M14 21v-7h2.5l.5-3H14V9c0-.9.3-1.5 1.7-1.5H17V5c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.5H7.5v3H10v7h4z" />
+  ),
+  instagram: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+    </>
+  ),
+  linkedin: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M8 10.5v6M8 7.8v.2" />
+      <path d="M12 16.5v-3.5c0-1.2.8-2 2-2s2 .8 2 2v3.5" />
+    </>
+  ),
+  chevronLeft: <path d="M15 6l-6 6 6 6" />,
+  chevronRight: <path d="M9 6l6 6-6 6" />,
 };
 
 export default function WhyIcon({ name, className = 'w-10 h-10' }: { name: IconName; className?: string }) {

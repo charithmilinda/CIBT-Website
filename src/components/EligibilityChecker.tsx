@@ -20,11 +20,11 @@ export default function EligibilityChecker({ courses }: { courses: Course[] }) {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <span className="text-gold text-xs font-semibold tracking-widest uppercase border border-gold/40 px-3 py-1 rounded-full inline-block mb-3">
-            Interactive Tool
+            University Checker
           </span>
-          <h2 className="font-heading text-3xl font-extrabold">Check Your Pathway Eligibility</h2>
+          <h2 className="font-heading text-3xl font-extrabold">Find Your University Match</h2>
           <p className="text-gray-300 text-sm mt-2">
-            Select your academic background to view your direct university entry routes to New Zealand.
+            Tell us your current qualification and your aspired field of study — we&apos;ll surface the popular courses that fit.
           </p>
         </div>
 

@@ -14,7 +14,7 @@ export async function POST(request: Request) {
 
     const data = await resend.emails.send({
       from: 'Impact Education Contact <onboarding@resend.dev>', // Update to your verified domain once live
-      to: ['info@impacteducation.example'], // Replace with your real receiving address
+      to: ['info@impacteducation.co.nz'],
       subject: `New Contact Message: ${name}`,
       html: `
         <h2>New Contact Form Message</h2>

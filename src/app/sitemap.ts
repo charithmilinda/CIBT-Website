@@ -43,6 +43,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${siteUrl}/contact`,
       lastModified: new Date(),
     },
+    {
+      url: `${siteUrl}/study-in-new-zealand`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${siteUrl}/book-appointment`,
+      lastModified: new Date(),
+    },
     ...courseUrls,
     ...blogUrls,
   ];

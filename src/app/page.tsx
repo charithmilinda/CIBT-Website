@@ -8,13 +8,16 @@ import {
 } from "@/lib/supabase/queries";
 import TestimonialSection from "@/components/TestimonialSection";
 import EligibilityChecker from "@/components/EligibilityChecker";
-import ConsultationForm from "@/components/ConsultationForm";
 import VisaAccordion from "@/components/VisaAccordion";
 import CareerStories from "@/components/CareerStories";
-import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import WhyIcon from "@/components/WhyIcon";
+import StudyPathwaysSlideshow from "@/components/StudyPathwaysSlideshow";
+import MediaHub from "@/components/MediaHub";
+import ReviewsSection from "@/components/ReviewsSection";
+import BookAppointmentCTA from "@/components/BookAppointmentCTA";
 
 export const revalidate = 0;
 
@@ -70,6 +73,13 @@ export default async function Home() {
                   Search
                 </button>
               </div>
+
+              <a
+                href="/book-appointment"
+                className="inline-block bg-emerald hover:bg-emerald/90 text-white font-bold text-xs px-6 py-3 rounded-lg transition-all hover:scale-[1.03] active:scale-[0.98] animate-fade-in-up [animation-delay:400ms]"
+              >
+                Book Your Free Appointment →
+              </a>
             </div>
           </div>
         </div>
@@ -98,7 +108,7 @@ export default async function Home() {
 
       {/* 2b. Why Choose Impact Education */}
       <RevealOnScroll>
-        <section className="py-16 max-w-7xl mx-auto px-6 lg:px-8">
+        <section className="py-16 max-w-7xl mx-auto px-6 lg:px-8" id="why">
           <div className="text-center mb-10">
             <span className="text-gold text-xs font-semibold tracking-widest uppercase border border-gold/40 px-3 py-1 rounded-full inline-block mb-3">
               Why Impact Education
@@ -129,6 +139,9 @@ export default async function Home() {
           </div>
         </section>
       </RevealOnScroll>
+
+      {/* 2c. Study Pathways Slideshow */}
+      <StudyPathwaysSlideshow />
 
       {/* 3. Guided Pathways & Interactive Checker */}
       <RevealOnScroll>
@@ -186,6 +199,11 @@ export default async function Home() {
         </section>
       </RevealOnScroll>
 
+      {/* 5b. Media Hub */}
+      <RevealOnScroll>
+        <MediaHub />
+      </RevealOnScroll>
+
       {/* 6. NZ Career Stories */}
       <RevealOnScroll>
         <CareerStories />
@@ -198,27 +216,18 @@ export default async function Home() {
         </div>
       </RevealOnScroll>
 
-      {/* 8. Consultation Form */}
+      {/* 7b. Reviews (not in main nav) */}
       <RevealOnScroll>
-        <ConsultationForm />
+        <ReviewsSection />
+      </RevealOnScroll>
+
+      {/* 8. Book Appointment CTA */}
+      <RevealOnScroll>
+        <BookAppointmentCTA />
       </RevealOnScroll>
 
       {/* 9. Footer */}
-      <footer className="bg-navy text-gray-400 py-12 border-t border-navy/20 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-xs">
-          <div>
-            <Logo variant="light" className="text-white" />
-            <p className="mt-1">Premier New Zealand Higher Education Pathways.</p>
-          </div>
-          <div className="flex gap-6 flex-wrap justify-center">
-            <a href="/about" className="hover:text-white transition-colors">About</a>
-            <a href="/faq" className="hover:text-white transition-colors">FAQ</a>
-            <a href="/contact" className="hover:text-white transition-colors">Contact</a>
-            <a href="/admin" className="hover:text-white transition-colors">CMS Login</a>
-          </div>
-          <p>© {new Date().getFullYear()} Impact Education. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
