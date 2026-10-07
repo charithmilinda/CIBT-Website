@@ -1,106 +1,136 @@
 'use client';
 
 import { useState } from 'react';
-import WhyIcon from './WhyIcon';
+import NzPhoto from './NzPhoto';
 
-type Icon = 'graduationCap' | 'globe' | 'home' | 'checklist' | 'target' | 'briefcase' | 'institution' | 'handshake' | 'phone' | 'pin' | 'star' | 'clock' | 'mail' | 'calendar';
+type Item = { title: string; copy: string };
 
-const GROUPS: {
-  key: string;
-  tab: string;
-  heading: string;
-  intro: string;
-  items: { icon: Icon; title: string; copy: string }[];
-}[] = [
+const WHY_NZ: Item[] = [
   {
-    key: 'nz',
-    tab: 'Why New Zealand',
-    heading: 'Why Choose New Zealand For Study And Life?',
-    intro:
-      'New Zealand pairs internationally recognised qualifications with a relaxed, safe and outdoors-focused way of life — a place where you can build both a career and a future.',
-    items: [
-      { icon: 'graduationCap', title: 'World-Class Education', copy: 'Qualifications recognised worldwide, with a strong focus on practical, industry-relevant learning and small, supportive class environments.' },
-      { icon: 'star', title: 'Vibrant Lifestyle', copy: 'Multicultural cities, a thriving food, arts and sports scene, and a balanced pace of life that students love.' },
-      { icon: 'globe', title: 'Natural Splendor', copy: 'Beaches, mountains, lakes and national parks are on your doorstep — perfect for weekends and holidays.' },
-      { icon: 'checklist', title: 'Safe and Welcoming Environment', copy: 'One of the most peaceful countries in the world, known for friendly communities and a warm welcome to international students.' },
-      { icon: 'home', title: 'Sustainable Living', copy: 'A national culture of clean energy, recycling and respect for the environment shapes everyday life.' },
-      { icon: 'briefcase', title: 'Career Opportunities', copy: 'Growing sectors including technology, healthcare, construction, agriculture and hospitality are looking for skilled graduates.' },
-      { icon: 'target', title: 'Unleashed Career Potential', copy: 'Practical learning and industry connections help you graduate ready to step into the workforce.' },
-      { icon: 'institution', title: 'Reliable Social Services', copy: 'Dependable healthcare, public services and student support systems you can count on while you live and study.' },
-      { icon: 'handshake', title: 'Ease of Settlement', copy: 'Clear processes, English-speaking communities and established support networks make settling in smoother.' },
-      { icon: 'briefcase', title: 'Multi Industrial Work Pathways', copy: 'Study and work options across many industries, giving you flexibility to shape the career you want.' },
-    ],
+    title: 'World-Class Education',
+    copy: 'New Zealand’s universities and institutes offer a wide range of Bachelor’s degrees, Diplomas, Master’s programmes and PhDs. Qualifications are internationally recognised, teaching is practical and industry-aware, and many programmes come with post-study work options that can help you build a career.',
   },
   {
-    key: 'us',
-    tab: 'Why Impact Education',
-    heading: 'Why Choose Us',
-    intro:
-      'We are with you at every stage — before you apply, while you study, and after you arrive — with honest advice and a team on the ground in New Zealand.',
-    items: [
-      { icon: 'target', title: 'Expert Guidance', copy: 'Experienced advisors who match your goals, budget and background to the right course and institution.' },
-      { icon: 'handshake', title: 'Reliable and Individualized Support', copy: 'No one-size-fits-all advice — every plan is built around you and your family.' },
-      { icon: 'checklist', title: 'Professional VISA Application Process', copy: 'Careful preparation and review of your documents so your visa application is complete and accurate.' },
-      { icon: 'calendar', title: 'Pre-Departure Guidance', copy: 'Practical briefings on travel, accommodation, money and what to expect before you fly.' },
-      { icon: 'phone', title: 'Post-Departure Support', copy: 'Help doesn’t stop at the airport — we stay in touch as you settle in and start your studies.' },
-      { icon: 'pin', title: 'Onshore Agency', copy: 'A real office in Auckland, so support is local, accessible and accountable.' },
-      { icon: 'institution', title: 'Integrity and Transparency', copy: 'Clear, honest advice on options, costs and timelines — no hidden surprises.' },
-    ],
+    title: 'Vivid and Dynamic Living',
+    copy: 'Student life here is full of energy — multicultural cities, great food and cafe culture, live music, sport and festivals all year round. It is easy to meet people, join clubs and feel at home quickly.',
+  },
+  {
+    title: 'All in One Landscape',
+    copy: 'Beaches, mountains, lakes, forests and city life sit within a short trip of each other. Whether you want a weekend hike, a ski day or a harbour walk after class, it is all close by.',
+  },
+  {
+    title: 'Safe and Welcoming',
+    copy: 'New Zealand is consistently regarded as one of the safest and most peaceful countries in the world, with friendly communities and strong support for international students.',
+  },
+  {
+    title: 'Unleashed Career Potential',
+    copy: 'Growing industries such as technology, healthcare, construction, agriculture and hospitality value skilled graduates. Practical learning and local industry connections help you move from study into work with confidence.',
+  },
+  {
+    title: 'Reliable Social Services',
+    copy: 'Dependable healthcare, public services and student support systems mean you can focus on your studies knowing the essentials are looked after.',
+  },
+  {
+    title: 'Ease of Settlement',
+    copy: 'English-speaking communities, clear processes and established support networks make it simpler to settle in, find accommodation and start building your life in a new country.',
+  },
+  {
+    title: 'Multi Industrial Work Pathways',
+    copy: 'Study and work pathways span many industries, giving you the flexibility to shape the career you want rather than being limited to a single route.',
   },
 ];
 
-export default function WhyNzWhyUs() {
-  const [active, setActive] = useState(0);
-  const group = GROUPS[active];
+const WHY_US: Item[] = [
+  {
+    title: 'Expert Guidance',
+    copy: 'Our advisors match your goals, budget and background to the right course and institution, and explain every option clearly before you decide.',
+  },
+  {
+    title: 'Reliable and Individualized Support',
+    copy: 'There is no one-size-fits-all plan. Every student and family gets advice built around their own situation, with a consistent point of contact throughout.',
+  },
+  {
+    title: 'Professional VISA Application Process',
+    copy: 'We prepare and carefully review your documents so your student visa application is complete, accurate and submitted with confidence.',
+  },
+  {
+    title: 'Pre-Departure Guidance',
+    copy: 'Practical briefings on travel, accommodation, budgeting and what to expect on arrival, so you land in New Zealand prepared.',
+  },
+  {
+    title: 'Post-Departure Support',
+    copy: 'Our help does not stop at the airport. We stay in touch as you settle in and begin your studies.',
+  },
+  {
+    title: 'Onshore Agency',
+    copy: 'With an office in Auckland, our support is local, accessible and accountable — you can speak to a real team in New Zealand.',
+  },
+  {
+    title: 'Integrity and Transparency',
+    copy: 'Honest advice on options, costs and timelines, with no hidden surprises.',
+  },
+];
+
+function Accordion({ items, initialOpen }: { items: Item[]; initialOpen: number | null }) {
+  const [open, setOpen] = useState<number | null>(initialOpen);
 
   return (
-    <div>
-      <div className="text-center mb-8">
-        <h2 className="font-heading text-2xl font-extrabold text-navy uppercase tracking-tight">
-          Why New Zealand, Why Us
-        </h2>
-        <div className="inline-flex mt-6 bg-gray-200 p-1 rounded-lg">
-          {GROUPS.map((g, i) => (
-            <button
-              key={g.key}
-              onClick={() => setActive(i)}
-              className={`px-5 py-2.5 text-xs font-semibold rounded-md transition-all ${
-                active === i ? 'bg-navy text-white shadow' : 'text-slate hover:text-navy'
-              }`}
-            >
-              {g.tab}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="text-center max-w-2xl mx-auto mb-10">
-        <h3 className="font-heading text-lg font-bold text-navy mb-2">{group.heading}</h3>
-        <p className="text-slate text-sm leading-relaxed">{group.intro}</p>
-      </div>
-
-      <div key={group.key} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 animate-fade-in">
-        {group.items.map((item) => (
+    <div className="space-y-2">
+      {items.map((item, idx) => {
+        const isOpen = open === idx;
+        return (
           <div
             key={item.title}
-            className="bg-canvas p-6 rounded-xl border border-gray-200 hover:shadow-card-hover hover:-translate-y-1 transition-all"
+            className={`bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm ${
+              isOpen ? 'border-l-4 border-l-emerald' : ''
+            }`}
           >
-            <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
-              <WhyIcon name={item.icon} className="w-6 h-6 text-gold" />
+            <button
+              onClick={() => setOpen(isOpen ? null : idx)}
+              aria-expanded={isOpen}
+              className="w-full text-left px-5 py-4 flex justify-between items-center gap-4 text-xs font-bold text-navy"
+            >
+              <span>{item.title}</span>
+              <span
+                className="w-6 h-6 shrink-0 rounded-full bg-emerald text-white flex items-center justify-center text-base leading-none transition-transform duration-300"
+                style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </button>
+            <div
+              className="grid transition-[grid-template-rows] duration-300 ease-out"
+              style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+            >
+              <div className="overflow-hidden">
+                <p className="px-5 pb-5 text-xs text-slate leading-relaxed">{item.copy}</p>
+              </div>
             </div>
-            <h4 className="font-heading font-bold text-sm text-navy mb-1">{item.title}</h4>
-            <p className="text-slate text-xs leading-relaxed">{item.copy}</p>
           </div>
-        ))}
+        );
+      })}
+    </div>
+  );
+}
+
+export default function WhyNzWhyUs() {
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 bg-canvas p-6 lg:p-10 rounded-2xl">
+      <div>
+        <h2 className="font-heading text-2xl font-extrabold text-navy mb-6">
+          Why Choose New Zealand
+          <br />
+          For Study And Life?
+        </h2>
+        <Accordion items={WHY_NZ} initialOpen={0} />
       </div>
 
-      <div className="mt-10 text-center">
-        <a
-          href="/book-appointment"
-          className="inline-block bg-gold hover:bg-gold/90 text-navy font-bold text-xs px-6 py-3 rounded-lg transition-all hover:scale-[1.03] active:scale-[0.98]"
-        >
-          Book Appointment
-        </a>
+      <div>
+        <h2 className="font-heading text-2xl font-extrabold text-navy mb-1">Why Choose Us</h2>
+        <p className="text-slate text-xs mb-5">Our services include:</p>
+        <NzPhoto file="why-choose-us.jpg" caption="Our team is with you every step" className="h-56 mb-5" />
+        <Accordion items={WHY_US} initialOpen={0} />
       </div>
     </div>
   );
