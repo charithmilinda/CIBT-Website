@@ -123,6 +123,7 @@ export default function WhyNzWhyUs() {
           <br />
           For Study And Life?
         </h2>
+        <NzPhoto file="queenstown-lake.jpg" caption="Adventure on your doorstep" className="h-56 mb-5" />
         <Accordion items={WHY_NZ} initialOpen={0} />
       </div>
 

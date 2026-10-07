@@ -8,15 +8,19 @@ export default function NzPhoto({
   file,
   caption,
   className = '',
+  rounded = 'rounded-2xl',
+  showCaption = true,
 }: {
   file: string;
   caption: string;
   className?: string;
+  rounded?: string;
+  showCaption?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
 
   return (
-    <figure className={`relative overflow-hidden rounded-2xl bg-navy ${className}`}>
+    <figure className={`relative overflow-hidden ${rounded} bg-navy ${className}`}>
       {!failed && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -27,9 +31,11 @@ export default function NzPhoto({
         />
       )}
       {failed && <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy/80 to-emerald/40" />}
-      <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-navy/90 to-transparent">
-        <figcaption className="text-white text-xs font-bold">{caption}</figcaption>
-      </div>
+      {showCaption && (
+        <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-navy/90 to-transparent">
+          <figcaption className="text-white text-xs font-bold">{caption}</figcaption>
+        </div>
+      )}
     </figure>
   );
 }

@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ApplicationProcess from "@/components/ApplicationProcess";
 import WhyNzWhyUs from "@/components/WhyNzWhyUs";
-import NzGallery from "@/components/NzGallery";
+import NzPhoto from "@/components/NzPhoto";
 import FaqAccordion from "@/components/FaqAccordion";
 import SimpleContactForm from "@/components/SimpleContactForm";
 import { getUniversities, getFaqs, University, Faq } from "@/lib/supabase/queries";
@@ -67,9 +67,6 @@ export default async function StudyInNewZealandPage() {
         </div>
       </section>
 
-      {/* Life in New Zealand photos */}
-      <NzGallery />
-
       {/* Partner Universities */}
       <section className="py-16 max-w-7xl mx-auto px-6 lg:px-8">
         <h2 className="font-heading text-2xl font-extrabold text-navy mb-3 text-center uppercase tracking-tight">
@@ -105,7 +102,8 @@ export default async function StudyInNewZealandPage() {
       </section>
 
       {/* Contact form */}
-      <section className="py-16 px-6 lg:px-8 max-w-2xl mx-auto">
+      <section className="py-16 px-6 lg:px-8 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <NzPhoto file="beach-lifestyle.jpg" caption="Your New Zealand life starts here" className="min-h-[260px]" />
         <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-card">
           <h2 className="font-heading text-xl font-bold text-navy mb-2 text-center">Still Have Questions?</h2>
           <p className="text-slate text-xs text-center mb-6">Send us a message and our team will get back to you.</p>

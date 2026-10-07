@@ -1,7 +1,11 @@
+import NzPhoto from './NzPhoto';
+
 export default function BookAppointmentCTA() {
   return (
-    <section className="py-20 bg-navy text-white px-6 lg:px-8 border-t border-navy/20" id="book">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="relative overflow-hidden py-20 bg-navy text-white px-6 lg:px-8 border-t border-navy/20" id="book">
+      <NzPhoto file="queenstown-lake.jpg" caption="New Zealand" rounded="rounded-none" showCaption={false} className="absolute inset-0 opacity-40" />
+      <div className="absolute inset-0 bg-navy/70" />
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
         <span className="text-gold text-xs font-semibold tracking-widest uppercase border border-gold/40 px-3 py-1 rounded-full inline-block mb-4">
           Take The Next Step
         </span>

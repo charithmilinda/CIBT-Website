@@ -15,7 +15,7 @@ import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import WhyIcon from "@/components/WhyIcon";
 import StudyPathwaysCards from "@/components/StudyPathwaysCards";
-import NzGallery from "@/components/NzGallery";
+import NzPhoto from "@/components/NzPhoto";
 import MediaHub from "@/components/MediaHub";
 import BookAppointmentCTA from "@/components/BookAppointmentCTA";
 
@@ -117,7 +117,9 @@ export default async function Home() {
               Your Pathway to New Zealand Starts Here
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+            <NzPhoto file="campus-life.jpg" caption="Student life in New Zealand" className="lg:col-span-2 min-h-[280px]" />
+            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               { icon: "target" as const, title: "Expert Advice", copy: "Experienced counsellors who know NZ pathways inside out." },
               { icon: "handshake" as const, title: "End-to-End Support", copy: "From your first consultation through arrival and settling in." },
@@ -136,17 +138,13 @@ export default async function Home() {
                 <p className="text-slate text-xs leading-relaxed">{item.copy}</p>
               </div>
             ))}
+            </div>
           </div>
         </section>
       </RevealOnScroll>
 
       {/* 2c. Study Pathways Cards */}
       <StudyPathwaysCards />
-
-      {/* 2d. Life in New Zealand photos */}
-      <RevealOnScroll>
-        <NzGallery />
-      </RevealOnScroll>
 
       {/* 3. Guided Pathways & Interactive Checker */}
       <RevealOnScroll>
@@ -165,13 +163,14 @@ export default async function Home() {
       {/* 4. Complete Admissions & Visa Guidance Accordion */}
       <RevealOnScroll>
         <section className="py-16 bg-white border-t border-gray-200 px-6 lg:px-8" id="admissions">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <NzPhoto file="student-community.jpg" caption="Studying together in New Zealand" className="min-h-[320px] lg:h-full" />
+            <div>
               <h2 className="font-heading text-2xl font-extrabold text-navy uppercase tracking-tight">
                 COMPLETE ADMISSIONS & STUDENT VISA GUIDANCE
               </h2>
+              <VisaAccordion />
             </div>
-            <VisaAccordion />
           </div>
         </section>
       </RevealOnScroll>
