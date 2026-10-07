@@ -14,9 +14,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import WhyIcon from "@/components/WhyIcon";
-import StudyPathwaysSlideshow from "@/components/StudyPathwaysSlideshow";
+import StudyPathwaysCards from "@/components/StudyPathwaysCards";
+import NzGallery from "@/components/NzGallery";
 import MediaHub from "@/components/MediaHub";
-import ReviewsSection from "@/components/ReviewsSection";
 import BookAppointmentCTA from "@/components/BookAppointmentCTA";
 
 export const revalidate = 0;
@@ -140,8 +140,13 @@ export default async function Home() {
         </section>
       </RevealOnScroll>
 
-      {/* 2c. Study Pathways Slideshow */}
-      <StudyPathwaysSlideshow />
+      {/* 2c. Study Pathways Cards */}
+      <StudyPathwaysCards />
+
+      {/* 2d. Life in New Zealand photos */}
+      <RevealOnScroll>
+        <NzGallery />
+      </RevealOnScroll>
 
       {/* 3. Guided Pathways & Interactive Checker */}
       <RevealOnScroll>
@@ -214,11 +219,6 @@ export default async function Home() {
         <div id="testimonials">
           <TestimonialSection testimonials={testimonials} />
         </div>
-      </RevealOnScroll>
-
-      {/* 7b. Reviews (not in main nav) */}
-      <RevealOnScroll>
-        <ReviewsSection />
       </RevealOnScroll>
 
       {/* 8. Book Appointment CTA */}

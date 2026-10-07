@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ApplicationProcess from "@/components/ApplicationProcess";
-import WhyChooseAccordion from "@/components/WhyChooseAccordion";
+import WhyNzWhyUs from "@/components/WhyNzWhyUs";
+import NzGallery from "@/components/NzGallery";
 import FaqAccordion from "@/components/FaqAccordion";
 import SimpleContactForm from "@/components/SimpleContactForm";
 import { getUniversities, getFaqs, University, Faq } from "@/lib/supabase/queries";
@@ -62,14 +63,12 @@ export default async function StudyInNewZealandPage() {
       {/* Why Choose NZ / Why Choose Us */}
       <section className="py-16 bg-white border-t border-gray-200 px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="font-heading text-2xl font-extrabold text-navy uppercase tracking-tight">
-              Why New Zealand, Why Us
-            </h2>
-          </div>
-          <WhyChooseAccordion />
+          <WhyNzWhyUs />
         </div>
       </section>
+
+      {/* Life in New Zealand photos */}
+      <NzGallery />
 
       {/* Partner Universities */}
       <section className="py-16 max-w-7xl mx-auto px-6 lg:px-8">
